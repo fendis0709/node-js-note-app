@@ -1,15 +1,39 @@
-const chalk = require('chalk')
-const notes = require('./notes')
-const validator = require('validator')
+const yargs = require('yargs')
 
-console.log(notes.getNotes())
+// Add new note
+yargs.command({
+  command: 'add',
+  describe: 'Add a new note',
+  handler: () => {
+    console.log('Adding a new note')
+  }
+})
 
-let email = 'fendi@doktr.me'
-console.log(`Is "${email}" a valid email?`)
-console.log(validator.isEmail(email))
+// Remove existing note by 'title'
+yargs.command({
+  command: 'remove',
+  describe: 'Remove note from given title',
+  handler: () => {
+    console.log('Removing the note')
+  }
+})
 
-let message = 'Success!'
-console.log(chalk.green(message))
-console.log(chalk.bgGreen(message))
-console.log(chalk.bold.bgYellow(message))
-console.log(chalk.inverse.yellow(message))
+// List existing note
+yargs.command({
+  command: 'list',
+  describe: 'Listing note',
+  handler: () => {
+    console.log('Listing notes')
+  }
+})
+
+// Read note by 'title'
+yargs.command({
+  command: 'read',
+  describe: 'Read note by given title',
+  handler: () => {
+    console.log('Reading note')
+  }
+})
+
+yargs.argv

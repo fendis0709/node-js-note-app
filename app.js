@@ -1,11 +1,26 @@
+const { argv } = require('yargs')
 const yargs = require('yargs')
 
 // Add new note
 yargs.command({
   command: 'add',
   describe: 'Add a new note',
-  handler: () => {
+  builder: {
+    title: {
+      describe: 'Note title',
+      demandOption: true,
+      type: 'string'
+    },
+    note: {
+      describe: 'Note content',
+      demandOption: true,
+      type: 'string'
+    }
+  },
+  handler: (argv) => {
     console.log('Adding a new note')
+    console.log(`Title: ${argv.title}`)
+    console.log(`Note: ${argv.note}`)
   }
 })
 
@@ -36,4 +51,4 @@ yargs.command({
   }
 })
 
-yargs.argv
+yargs.parse()

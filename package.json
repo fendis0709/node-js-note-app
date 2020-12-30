@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/fendis0709/node-js-note-app#readme",
   "dependencies": {
+    "chalk": "^2.4.1",
     "validator": "^10.8.0"
   }
 }

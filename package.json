@@ -1,0 +1,26 @@
+{
+  "name": "simple-note-app",
+  "version": "1.0.0",
+  "description": "Simple note app build using Node JS",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fendis0709/node-js-note-app.git"
+  },
+  "keywords": [
+    "note",
+    "app"
+  ],
+  "author": "Fendi Setiawan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fendis0709/node-js-note-app/issues"
+  },
+  "homepage": "https://github.com/fendis0709/node-js-note-app#readme",
+  "dependencies": {
+    "validator": "^10.8.0"
+  }
+}

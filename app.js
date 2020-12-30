@@ -1,5 +1,3 @@
-const hello = require('./world.js')
+const notes = require('./notes')
 
-console.log(hello.world)
-
-console.log(hello.multiply(9, 11))
+console.log(notes.getNotes())

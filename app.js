@@ -1,3 +1,3 @@
-const fs = require('fs')
+const hello = require('./world.js')
 
-fs.writeFileSync('note.txt', 'This file was created by Node JS!')
+console.log(hello.world)

@@ -4,7 +4,7 @@ getNotes = function () {
   return 'Your notes...'
 }
 
-addNotes = function (title, body) {
+addNote = function (title, body) {
   let notes = loadNotes()
 
   // If title already taken, don't add new note
@@ -19,11 +19,43 @@ addNotes = function (title, body) {
     })
 
     saveNotes(notes)
-    console.log('Note added!')
-    return;
+
+    return {
+      isSuccess: true,
+      data: {
+        notes: notes
+      }
+    }
   }
 
-  console.log('Title already taken!')
+  return {
+    isSuccess: false,
+    data: {
+      notes: duplicates
+    }
+  }
+}
+
+removeNote = function (title) {
+  let notes = loadNotes()
+
+  const filteredNotes = notes.filter(function (note) {
+    return note.title !== title
+  })
+
+  saveNotes(filteredNotes)
+
+  let status = true
+  if (notes.length == filteredNotes.length) {
+    status = false
+  }
+
+  return {
+    isSuccess: status,
+    data: {
+      notes: filteredNotes
+    }
+  }
 }
 
 // Membaca data dari file ke dalam array
@@ -44,5 +76,6 @@ saveNotes = function (notes) {
 
 module.exports = {
   getNotes: getNotes,
-  addNotes: addNotes
+  addNote: addNote,
+  removeNote: removeNote
 }
